@@ -1,0 +1,93 @@
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1F90B2;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  	
+  height:30px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+body{
+width:1400px;
+}
+.hell
+{
+float:right;
+position: relative;
+    
+    display: inline-block;
+    cursor: crosshair;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.heaven
+{
+visibility: hidden;
+    width: 860px;
+    
+    /* background: #7cf2fe; For browsers that do not support gradients */    
+    /*background: -webkit-linear-gradient(left top, #7cf2fe, #ffffff); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(bottom right, #7cf2fe, #ffffff); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(bottom right,#7cf2fe, #ffffff); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(to bottom right, #7cf2fe, #ffffff); */ 
+    padding: 4px;
+    background-color:#1F90B2;;
+    border-radius:4px;
+    position: absolute;
+    color:black;
+    bottom: 125%;
+    left: 70%;
+    margin-left: -1000px;
+}
+
+.show {
+
+visibility:visible;
+-webkit-animation: fadeIn 1s;
+ animation: fadeIn 1s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 100;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:100;}
+}
+

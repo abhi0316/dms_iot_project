@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<style>
+.hell
+{
+
+position: relative;
+    left: 10%;
+    display: inline-block;
+    cursor: crosshair;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.heaven
+{
+visibility: hidden;
+    width: 590px;
+    
+    /* background: #7cf2fe; For browsers that do not support gradients */    
+    /*background: -webkit-linear-gradient(left top, #7cf2fe, #ffffff); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(bottom right, #7cf2fe, #ffffff); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(bottom right,#7cf2fe, #ffffff); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(to bottom right, #7cf2fe, #ffffff); */ 
+    padding: 5px;
+    position: absolute;
+    color:black;
+    top: 125%;
+    left: 70%;
+    margin-left: 50px;
+}
+
+.show {
+
+visibility:visible;
+-webkit-animation: fadeIn 1s;
+ animation: fadeIn 1s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 100;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:100;}
+}
+
+</style>
+<script>
+function fn()
+{
+var popup = document.getElementById("heaven");
+    popup.classList.toggle("show");
+}
+</script>
+</head>
+
+
+<div class="hell"><button onclick=fn();>heaven</button><span class="heaven" id="heaven"> <input type ="text" style="color:gray;" value="medicine"> <input type ="text" value="date"style="color:gray;"> <input type ="text"value="dose"style="color:gray;"></span></div>
+helloworld
+</body>
+</html>

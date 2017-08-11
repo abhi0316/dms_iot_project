@@ -1,0 +1,44 @@
+
+.tab
+{
+	height:38px;
+	width:1295px;
+    margin-left: 20px;
+	margin-bottom: 5px;
+	background-color: #1F90B2;
+	border-radius: 5px;
+}
+
+
+.click
+{
+background-color: #1F90B2; /* Green */
+    border:none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+
+
+}
+.click:hover
+{
+background-color:gray; /* Green */
+    border:none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+
+
+}
