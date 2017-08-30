@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" type="text/css" href="tab.css">
 </head>
-<body onload="currentSlide(1)">
+<body onload="currentSlide(2)">
  
 
 <div class="tab" >
@@ -154,25 +154,224 @@ function openCity(cityName) {
 <br><br>
 <div class ="main_graph">
 <div class="graph_area">
-<button class="morninggraph" onclick="currentSlide(1)">Morning</button>
+<!--button class="morninggraph" onclick="currentSlide(1)">Morning</button>
+
 <button class="morninggraph" onclick="currentSlide(2)">Evening</button>
 <button class="morninggraph" onclick="currentSlide(3)">Temp</button>
 
+</div-->
+
+<!--div class="dropdown"-->
+<button onclick="myFunction()" class="dropbtn">Productivity</button>
+<div id="myDropdown" class="dropdown-content">
+    <button class="morninggraph" onclick="currentSlide(1)">morning</button>
+     <button class="morninggraph" onclick="currentSlide(2)">evening</button>
+    <!--a href="#contact">Contact</a-->
+  </div>
+  <button onclick="myFunction()" class="dropbtn">Temperatre</button>
+<div id="myDropdown" class="dropdown-content">
+    <a href="#home">Morning</a>
+    <a href="#about">Evening</a>
+    <!--a href="#contact">Contact</a-->
+  </div>
+<button onclick="myFunction()" class="dropbtn" >Conductivity</button>
+<div id="myDropdown" class="dropdown-content">
+    <!--a href="javascript:currentSlide(1)">Morning</a>
+    <a href="#about">Evening</a-->
+     <button class="morninggraph" onclick="currentSlide(2)">Evening</button>
+     <button class="morninggraph" onclick="currentSlide(3)">Temp</button>
+
+    <!--a href="#contact">Contact</a-->
+  </div>
 </div>
 
-<div class="mySlides fade">
-  <img src="line_graph.png" style="float:right;height:300px;
-width:1130px;">
+<div class="mySlides fade" id ="container">
+  
+<?php
+
+$hostname='localhost';
+$username='root';
+$password='root';
+$dbname='test';
+
+
+
+
+
+
+
+$sql=mysqli_connect($hostname,$username,$password,$dbname);
+if($sql)
+{
+  
+
+
+
+
+$fetch= "SELECT * FROM test";
+$fetch1=mysqli_query($sql,$fetch);
+if (mysqli_num_rows($fetch1) > 0)
+{
+$i =0;
+$a = array();
+$b = array();
+$c = array();
+while($row=mysqli_fetch_assoc($fetch1))
+{
+    
+  $a[$i]=$row['date'];
+  $b[$i] = $row['time'];
+  $c[$i] = $row['amount'];
+  
+    $i =$i+1;
+}
+}
+
+
+
+}
+?>
+
+
+<script>
+var a =<?php echo json_encode($a,JSON_NUMERIC_CHECK); ?>;
+var b =<?php echo json_encode($b,JSON_NUMERIC_CHECK); ?>;
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: ''
+    },
+    
+    xAxis: {
+        categories: ['1', '2', '3']
+    },
+    yAxis: {
+        title: {
+            text: 'litre (l)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'morning',
+        data: a
+    }]
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
   </div>
 
-<div class="mySlides fade">
-  <img src="area_graph.png" style=" float:right;height:300px;
-width:1130px; ">
+
+
+
+<div class="mySlides fade" id ="container1">
+<script>
+var a =<?php echo json_encode($a,JSON_NUMERIC_CHECK); ?>;
+var b =<?php echo json_encode($b,JSON_NUMERIC_CHECK); ?>;
+Highcharts.chart('container1', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: ''
+    },
+    
+    xAxis: {
+        categories: ['1', '2', '3']
+    },
+    yAxis: {
+        title: {
+            text: 'litre (l)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'evening',
+        data: b
+    }]
+
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+  
   </div>
 
-<div class="mySlides fade">
-  <img src="multi-host-graph.png" style="float:right;height:300px;
-width:1130px;">
+<div class="mySlides fade" id="container2">
+  <script>
+var a =<?php echo json_encode($a,JSON_NUMERIC_CHECK); ?>;
+var b =<?php echo json_encode($b,JSON_NUMERIC_CHECK); ?>;
+Highcharts.chart('container2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: ''
+    },
+    
+    xAxis: {
+        categories: ['1', '2', '3']
+    },
+    yAxis: {
+        title: {
+            text: 'litre (l)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'Temp',
+        data: b
+    }]
+
+
+});
+
+</script>
+
   </div>
 
 </div>
